@@ -6,7 +6,7 @@ Documentation will be provided in the event that we receive a bunch of requests.
 In this section I will summarize the core parts of this module to help you get up and running a little bit faster.
 ### Access token refresh
 This must be called in order to get a new access token from your refresh token. I am not going to cover how to get a refresh token, as that is outside of the scope of this program, however, a quick google search will get you setup with one in a matter of minutes. I advise using this in a 2nd thread and using the expires_in as a way to ensure that the token never expires. The expires_in variable is expressed in seconds. In the example below you would place the refresh_access_token() function in a separate thread and the program would take care of the refreshing for you.
-```
+```python
 def get_new_access_token(refresh_token, client_id, client_secret):
     token_url = 'https://signin.tradestation.com/oauth/token'
     headers = {'content-type': 'application/x-www-form-urlencoded'}
@@ -59,7 +59,7 @@ def refresh_access_token():
 ```
 ### Ordering
 Being able to send trades out is kind of important. I won't explain this example- just read through it. This assunes that you have the access token auto refresh taken care of somewhere else (a separate thread).
-```
+```python
 def print_blue_text(text):
     blue_text = "\033[34m" + text + "\033[0m"
     print(blue_text)
